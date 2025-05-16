@@ -1,7 +1,10 @@
 import express, { Request, Response } from 'express';
 import { Consultas } from './Consultas';
+import { Auth } from './util/Auth';
 
 const router = express.Router();
+
+router.post('/login', Auth.validacaoUsuario);
 
 router.get('/', (req: Request, res: Response) => { res.send('Hello World!') });
 
