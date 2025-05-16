@@ -1,6 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/esm/Button';
+import AuthRequests from '../../fetch/AuthRequest';
 
 function Navegacao() {
 
@@ -12,6 +14,10 @@ function Navegacao() {
         color: 'var(--fontColor)',
     }
 
+    const logout = () => {
+        AuthRequests.removeToken();
+    }
+
     return (
         <>
             <Navbar style={estiloNavbar}>
@@ -20,6 +26,8 @@ function Navegacao() {
                     <Nav className="me-auto">
                         <Nav.Link href="/pessoas" style={estiloNavOptions}>Pessoas</Nav.Link>
                     </Nav>
+                    <Button href='/login' variant='light'>Login</Button>
+                    <Button variant='light' onClick={logout}>Sair</Button>
                 </Container>
             </Navbar>
         </>
